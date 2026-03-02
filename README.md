@@ -1,23 +1,27 @@
-# React Custom Calendar
+# 📅 calendar-pro
 
-A fully responsive, highly customizable calendar dropdown component for React.
+A lightweight, fully responsive, and highly customizable React calendar dropdown component built for modern web applications. Perfect for booking systems, scheduling interfaces, forms, dashboards, and date-based workflows.
 
-## Installation
+---
+
+## 🚀 Installation
 
 ```bash
-npm install react-custom-calendar
+npm install calendar-pro
 # or
-yarn add react-custom-calendar
+yarn add calendar-pro
 ```
 
-## Basic Usage
+---
 
-To get started, simply import the `Calendar` component and its styles.
+## 🧩 Basic Usage
+
+To get started, import the `Calendar` component and its styles:
 
 ```jsx
-import React, { useState } from 'react';
-import Calendar from 'react-custom-calendar';
-import 'react-custom-calendar/style.css'; // Don't forget to import the styles!
+import React from 'react';
+import Calendar from 'calendar-pro';
+import 'calendar-pro/style.css';
 
 function App() {
   const handleDateSelect = (dateObject, formattedDateString) => {
@@ -34,23 +38,30 @@ function App() {
 export default App;
 ```
 
-## Advanced Features & Customization
+---
 
-The core strength of `react-custom-calendar` is its extensive customizability and restrictions.
+## ✨ Features
 
-### Date Limits (`minDate` & `maxDate`)
-You can restrict the user from selecting dates outside of a specific range using `minDate` and `maxDate`. This is useful for things like booking systems where past dates or dates too far in the future should be disabled.
-When dates are restricted:
-- Days outside the range will be disabled and unclickable.
-- The user won't be able to navigate to months or years outside the valid boundaries.
-- The previous/next month arrows will become disabled when the limit is reached.
+* 📆 Modern dropdown calendar UI
+* 🎯 Min & max date restrictions
+* 🎨 Fully customizable theme (CSS variables)
+* 🧩 Custom SVG icon support
+* 📱 Fully responsive design
+* ⚡ Lightweight and optimized
+* 🔁 Works with React 16, 17, and 18
+
+---
+
+## 🔒 Date Limits (`minDate` & `maxDate`)
+
+Restrict date selection within a defined range.
 
 ```jsx
 const minD = new Date();
-minD.setDate(minD.getDate() - 5);  // Limit selection to dates from 5 days ago
+minD.setDate(minD.getDate() - 5);
 
 const maxD = new Date();
-maxD.setDate(maxD.getDate() + 15); // Limit selection to max 15 days in the future
+maxD.setDate(maxD.getDate() + 15);
 
 <Calendar 
   minDate={minD} 
@@ -59,27 +70,37 @@ maxD.setDate(maxD.getDate() + 15); // Limit selection to max 15 days in the futu
 />
 ```
 
-### Theming
-The calendar component relies on CSS variables for its internal colors, making it incredibly easy to completely re-theme the component without writing custom CSS classes. You can just pass a `theme` object!
+When restricted:
+
+* Dates outside range are disabled
+* Month/year navigation respects limits
+* Arrows disable automatically at boundaries
+
+---
+
+## 🎨 Theming Support
+
+Easily customize the look using a `theme` object:
 
 ```jsx
 <Calendar 
   theme={{
-    'bg': '#fdf2f2',                  // Main background color
-    'text': '#c62828',                // Main text color
-    'dropdown-bg': '#ffebee',         // Month/Year dropdown background
-    'dropdown-text': '#b71c1c',       // Dropdown item text
-    'dropdown-hover-bg': '#ffcdd2',   // Dropdown item hover background
-    'active-bg': '#d32f2f',           // Active/selected day background
-    'active-text': '#ffffff',         // Active/selected day text
-    'hover-bg': '#ef9a9a',            // Hover state for date items
-    'inactive-text': '#ef9a9a'        // Text for disabled or neighboring month days
+    bg: '#fdf2f2',
+    text: '#c62828',
+    'dropdown-bg': '#ffebee',
+    'dropdown-text': '#b71c1c',
+    'dropdown-hover-bg': '#ffcdd2',
+    'active-bg': '#d32f2f',
+    'active-text': '#ffffff',
+    'hover-bg': '#ef9a9a',
+    'inactive-text': '#ef9a9a'
   }}
 />
 ```
 
-### Custom Styling & Classes
-If you need layout-level adjustments, you can pass standard `style` and `className` props which will be applied to the topmost container.
+---
+
+## 🎛 Custom Styling
 
 ```jsx
 <Calendar 
@@ -88,30 +109,40 @@ If you need layout-level adjustments, you can pass standard `style` and `classNa
 />
 ```
 
-### Custom SVG Icons
-Don't like the default icons? Pass your own JSX/SVG elements.
+---
+
+## 🖼 Custom SVG Icons
 
 ```jsx
 <Calendar 
-    calendarIcon={<MyCustomCalendarSvg />}
-    prevIcon={<MyCustomLeftArrow />}
-    nextIcon={<MyCustomRightArrow />}
+  calendarIcon={<MyCustomCalendarSvg />}
+  prevIcon={<MyCustomLeftArrow />}
+  nextIcon={<MyCustomRightArrow />}
 />
 ```
 
 ---
 
-## Props Reference
+## 📘 Props Reference
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `onDateSelect` | `(Date, string) => void` | `undefined` | Callback fired when a date is selected. Returns the `Date` object and a formatted string (`DD/MM/YYYY`). |
-| `initialDate` | `Date \| string \| number` | `new Date()` | The initial date the calendar should load with. |
-| `minDate` | `Date \| string \| number` | `null` | The earliest date the user is allowed to select. |
-| `maxDate` | `Date \| string \| number` | `null` | The latest date the user is allowed to select. |
-| `theme` | `Object` | `{}` | An object mapping to internal CSS variables for theming. |
-| `className` | `string` | `""` | Standard HTML class attribute appended to the root element. |
-| `style` | `Object` | `{}` | Inline styles applied to the root element. |
-| `calendarIcon` | `ReactNode` | `undefined` | Replaces the default calendar icon next to the selected date text. |
-| `prevIcon` | `ReactNode` | `undefined` | Replaces the left arrow icon for previous month navigation. |
-| `nextIcon` | `ReactNode` | `undefined` | Replaces the right arrow icon for next month navigation. |
+| Prop           | Type                       | Default      | Description                            |
+| -------------- | -------------------------- | ------------ | -------------------------------------- |
+| `onDateSelect` | `(Date, string) => void`   | `undefined`  | Triggered when a date is selected.     |
+| `initialDate`  | `Date \| string \| number` | `new Date()` | Initial loaded date.                   |
+| `minDate`      | `Date \| string \| number` | `null`       | Minimum selectable date.               |
+| `maxDate`      | `Date \| string \| number` | `null`       | Maximum selectable date.               |
+| `theme`        | `Object`                   | `{}`         | Theme customization via CSS variables. |
+| `className`    | `string`                   | `""`         | Extra class for root container.        |
+| `style`        | `Object`                   | `{}`         | Inline styles for root container.      |
+| `calendarIcon` | `ReactNode`                | `undefined`  | Custom calendar icon.                  |
+| `prevIcon`     | `ReactNode`                | `undefined`  | Custom previous month icon.            |
+| `nextIcon`     | `ReactNode`                | `undefined`  | Custom next month icon.                |
+
+---
+
+## 🏷 Keywords 
+
+React Calendar • React Date Picker • React Scheduler • Event Calendar • Booking Calendar • Custom React Calendar • React UI Component • Calendar Dropdown • Appointment Scheduler • Modern React Calendar
+
+---
+
