@@ -1,0 +1,61 @@
+{
+  "name": "calendar-pro",
+  "version": "1.0.0",
+  "description": "A lightweight, customizable, and responsive event-based calendar dropdown component for React applications.",
+  "keywords": [
+    "react calendar",
+    "react event calendar",
+    "react scheduler",
+    "react date dropdown",
+    "react calendar component",
+    "react event planner",
+    "react agenda",
+    "react monthly calendar",
+    "react weekly calendar",
+    "react reusable calendar",
+    "react ui component",
+    "calendar ui",
+    "event management",
+    "frontend calendar",
+    "react.js",
+    "vite library"
+  ],
+  "author": "Harsh Patel",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harsh4477/calendar-pro.git"
+  },
+  "homepage": "https://github.com/harsh4477/calendar-pro#readme",
+  "bugs": {
+    "url": "https://github.com/harsh4477/calendar-pro/issues"
+  },
+  "main": "dist/react-custom-calendar.umd.js",
+  "module": "dist/react-custom-calendar.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/react-custom-calendar.es.js",
+      "require": "./dist/react-custom-calendar.umd.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "sass": "^1.71.1",
+    "vite": "^5.1.4"
+  }
+}
